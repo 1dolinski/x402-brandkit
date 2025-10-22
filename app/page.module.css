@@ -1,0 +1,265 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.form {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(102, 126, 234, 0.3);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  color: #c33;
+}
+
+.results {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resultsTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.faviconGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.faviconItem {
+  text-align: center;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.faviconImg {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  image-rendering: pixelated;
+  background: #f9f9f9;
+}
+
+.logoPreview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  min-height: 200px;
+}
+
+.logoImg {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.logoActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.downloadBtn {
+  padding: 0.75rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.downloadBtn:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+}
+
+.descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.descriptionItem {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.descriptionItem h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.descriptionText {
+  color: #333;
+  line-height: 1.6;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.keyword {
+  padding: 0.25rem 0.75rem;
+  background: #667eea;
+  color: white;
+  border-radius: 16px;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .form,
+  .results {
+    padding: 1.5rem;
+  }
+
+  .logoActions {
+    flex-direction: column;
+  }
+
+  .downloadBtn {
+    width: 100%;
+  }
+}
