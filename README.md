@@ -8,6 +8,9 @@ A Next.js + TypeScript application that uses x402 endpoints to generate all bran
 - **Logo Generation**: Create logos in SVG and PNG formats
 - **Description Generation**: Get brand descriptions in multiple lengths (short, medium, long) with keywords
 - **All-in-one Generation**: Generate all brand assets with a single API call
+- **Mock Mode**: Built-in mock API for development and testing without requiring x402 backend
+- **Responsive UI**: Modern, mobile-friendly interface
+- **Easy Download**: One-click download for all generated assets
 
 ## Tech Stack
 
@@ -36,12 +39,21 @@ cd x402-brandkit
 npm install
 ```
 
-3. Run the development server:
+3. Configure environment variables:
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local` to configure the application:
+- Set `NEXT_PUBLIC_USE_MOCK=true` to use mock data for development
+- Set `NEXT_PUBLIC_USE_MOCK=false` and configure `NEXT_PUBLIC_X402_API_BASE` when x402 API is available
+
+4. Run the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## API Endpoints
 
@@ -160,7 +172,15 @@ The easiest way to deploy is using the Vercel Platform:
 1. Push your code to GitHub
 2. Import your repository on [Vercel](https://vercel.com/new)
 3. Vercel will automatically detect Next.js and configure the build
-4. Click "Deploy"
+4. Configure environment variables in Vercel:
+   - `NEXT_PUBLIC_USE_MOCK`: Set to `false` in production if x402 API is available
+   - `NEXT_PUBLIC_X402_API_BASE`: Set to your x402 API endpoint if different from default
+5. Click "Deploy"
+
+### Environment Variables
+
+- `NEXT_PUBLIC_USE_MOCK`: Enable/disable mock API (default: `true` in development)
+- `NEXT_PUBLIC_X402_API_BASE`: x402 API base URL (default: `https://x402.com/api`)
 
 ### Manual Deployment
 

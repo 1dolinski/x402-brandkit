@@ -3,7 +3,8 @@
  * Provides functions to generate favicons, logos, and descriptions
  */
 
-const X402_API_BASE = 'https://x402.com/api';
+const X402_API_BASE = process.env.NEXT_PUBLIC_X402_API_BASE || 'https://x402.com/api';
+const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK === 'true' || process.env.NODE_ENV === 'development';
 
 export interface BrandRequest {
   name: string;
@@ -37,6 +38,12 @@ export interface DescriptionResponse {
  * Generate favicon in multiple sizes
  */
 export async function generateFavicon(request: BrandRequest): Promise<FaviconResponse> {
+  // Use mock in development mode
+  if (USE_MOCK) {
+    const { mockGenerateFavicon } = await import('./mocks/x402-mock');
+    return mockGenerateFavicon(request);
+  }
+
   const response = await fetch(`${X402_API_BASE}/favicon`, {
     method: 'POST',
     headers: {
@@ -56,6 +63,12 @@ export async function generateFavicon(request: BrandRequest): Promise<FaviconRes
  * Generate logo in SVG and PNG formats
  */
 export async function generateLogo(request: BrandRequest): Promise<LogoResponse> {
+  // Use mock in development mode
+  if (USE_MOCK) {
+    const { mockGenerateLogo } = await import('./mocks/x402-mock');
+    return mockGenerateLogo(request);
+  }
+
   const response = await fetch(`${X402_API_BASE}/logo`, {
     method: 'POST',
     headers: {
@@ -75,6 +88,12 @@ export async function generateLogo(request: BrandRequest): Promise<LogoResponse>
  * Generate brand descriptions of various lengths
  */
 export async function generateDescription(request: BrandRequest): Promise<DescriptionResponse> {
+  // Use mock in development mode
+  if (USE_MOCK) {
+    const { mockGenerateDescription } = await import('./mocks/x402-mock');
+    return mockGenerateDescription(request);
+  }
+
   const response = await fetch(`${X402_API_BASE}/description`, {
     method: 'POST',
     headers: {
